@@ -1,16 +1,25 @@
 package org.edu.miu.cs544.labw1d1;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
 public class Car {
-    @Id
-    int id;
-    String model;
-    String make;
-    int year;
-    int mileage;
+    @Id@GeneratedValue
+    private int id;
+    private String model;
+    private String make;
+    private int year;
+    private int mileage;
+
+    public Car() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public Car(String model, String make, int year, int mileage) {
         this.model = model;
@@ -49,5 +58,14 @@ public class Car {
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Car [id=" + id + ", model=" + model + ", make=" + make);
+        builder.append(", year=" + year + ", mileage=" + mileage);
+        builder.append("]");
+        return builder.toString();
     }
 }
