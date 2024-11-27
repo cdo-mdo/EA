@@ -3,6 +3,7 @@ package org.edu.miu.cs544.w1d2.assignment_1;
 import jakarta.persistence.*;
 
 @Entity
+@Table (name = "table1")
 public class Student {
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

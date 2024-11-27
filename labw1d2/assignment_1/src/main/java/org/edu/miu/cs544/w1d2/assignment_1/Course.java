@@ -6,12 +6,18 @@ import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
+@Table (name = "course")
+@SecondaryTable(name = "campus_room", pkJoinColumns = @PrimaryKeyJoinColumn(name = "course_id"))
 public class Course {
     @Id@GeneratedValue
     private int id;
     private String title;
     private int capacity;
+
+    @Column(table = "campus_room")
     private String room;
+
+    @Column (name = "CODE")
     private String number;
 
     public String getTitle() {
