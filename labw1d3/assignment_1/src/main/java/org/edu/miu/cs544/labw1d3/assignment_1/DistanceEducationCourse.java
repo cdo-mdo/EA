@@ -1,20 +1,24 @@
 package org.edu.miu.cs544.labw1d3.assignment_1;
 
+import jakarta.persistence.Entity;
+
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class DistanceEducationCourse extends Course {
     String examProfessor;
-    List<Date> webinarSessionDate;
+
+    List<Date> webinarDate;
     public DistanceEducationCourse() {
         super();
     }
     public DistanceEducationCourse(
-            String title, Date startDate, String professor, String examProfessor,
+            String title, String name, Date startDate, String professor, String examProfessor,
             List<Date> webinarSessionDate) {
-        super(title, startDate, professor);
+        super(title, name, startDate, professor);
         this.examProfessor = examProfessor;
-        this.webinarSessionDate = webinarSessionDate;
+        this.webinarDate = webinarSessionDate;
     }
     public String getExamProfessor() {
         return examProfessor;
@@ -22,10 +26,10 @@ public class DistanceEducationCourse extends Course {
     public void setExamProfessor(String examProfessor) {
         this.examProfessor = examProfessor;
     }
-    public List<Date> getWebinarSessionDate() {
-        return webinarSessionDate;
+    public List<Date> getWebinarDate() {
+        return webinarDate;
     }
-    public void setWebinarSessionDate(List<Date> webinarSessionDate) {
-        this.webinarSessionDate = webinarSessionDate;
+    public void setWebinarDate(List<Date> webinarSessionDate) {
+        this.webinarDate = webinarSessionDate;
     }
 }

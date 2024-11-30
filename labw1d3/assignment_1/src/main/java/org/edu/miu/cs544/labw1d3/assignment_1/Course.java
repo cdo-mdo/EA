@@ -1,23 +1,24 @@
 package org.edu.miu.cs544.labw1d3.assignment_1;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Inheritance (strategy = InheritanceType.JOINED)
 public class Course {
     @Id@GeneratedValue
     private int id;
     private String title;
+    private String name;
     private Date startDate;
     private String professor;
 
     public Course() {
     }
-    public Course(String title, Date startDate, String professor) {
+    public Course(String title, String name, Date startDate, String professor) {
         this.title = title;
+        this.name = name;
         this.startDate = startDate;
         this.professor = professor;
     }
@@ -45,4 +46,11 @@ public class Course {
     public void setProfessor(String professor) {
         this.professor = professor;
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
