@@ -11,7 +11,7 @@ public class AuthService {
     private UserRepository userRepository;
 
     public boolean authenticate(String username, String password) {
-        Optional<User> userOptional = userRepository.findByName(username);
+        Optional<User> userOptional = userRepository.findByUsername((username));
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();

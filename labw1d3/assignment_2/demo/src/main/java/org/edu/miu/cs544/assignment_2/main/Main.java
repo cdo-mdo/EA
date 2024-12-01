@@ -3,13 +3,26 @@ package org.edu.miu.cs544.assignment_2.main;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.edu.miu.cs544.assignment_2.user.PasswordUtil;
 import org.edu.miu.cs544.assignment_2.user.User;
-import org.edu.miu.cs544.assignment_2.user.UserRepository;
 
 import java.time.LocalDateTime;
 
 public class Main {
+    private static int getNumberOfUser(EntityManager em) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+        Root<User> root = cq.from(User.class);
+        cq.select(root);
+
+        TypedQuery<User> query = em.createQuery(cq);
+        return query.getResultList().size();
+    }
+
     public static void main(String[] args) {
         User admin = new User("admin", PasswordUtil.hashPassword("admin"),
                 "ADMIN", true, LocalDateTime.now(), LocalDateTime.now());
@@ -35,6 +48,8 @@ public class Main {
         em.persist(user4);
         em.persist(user5);
         em.getTransaction().commit();
+
+        System.out.println("Number of users: " + getNumberOfUser(em));
 
         em.close();
         emf.close();
