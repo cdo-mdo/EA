@@ -1,4 +1,4 @@
-package org.edu.miu.cs544.exercise_3;
+package org.edu.miu.cs544.labw1d1.exercise_4;
 
 import jakarta.persistence.*;
 
@@ -7,17 +7,16 @@ import java.util.List;
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private int id;
-
     private String name;
     private String address;
 
-    @OneToMany (cascade = CascadeType.PERSIST)
-    private List<Order> orders;
+    @OneToMany
+    List<Order> orders;
 
     public Customer() {
-
+        super();
     }
     public Customer(String name, String address) {
         this.name = name;

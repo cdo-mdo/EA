@@ -1,23 +1,24 @@
-package org.edu.miu.cs544.exercise_3;
+package org.edu.miu.cs544.labw1d1.exercise_4;
 
 import jakarta.persistence.*;
 
 @Entity
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private int id;
+
     private int quantity;
 
-//    @ManyToOne (fetch = FetchType.EAGER)
-//    private Customer customer;
+    @ManyToOne
+    private Customer customer;
 
     public Order() {
-        super();
+
     }
-    public Order(int quantity) {
+    public Order(int quantity, Customer customer) {
         this.quantity = quantity;
-//        this.customer = customer;
+        this.customer = customer;
     }
     public int getId() {
         return id;
@@ -31,10 +32,10 @@ public class Order {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    public Customer getCustomer() {
+        return customer;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }

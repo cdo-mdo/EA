@@ -17,27 +17,27 @@ public class Main {
         Customer customer3 = new Customer("john", "Colorado");
 
         List<Order> orders1 = new ArrayList<>();
-        Order order1 = new Order(10, customer1);
-        Order order2 = new Order(20, customer1);
-        Order order3 = new Order(30, customer1);
+        Order order1 = new Order(10);
+        Order order2 = new Order(20);
+        Order order3 = new Order(30);
         orders1.add(order1);
         orders1.add(order2);
         orders1.add(order3);
         customer1.setOrders(orders1);
 
         List<Order> orders2 = new ArrayList<>();
-        Order order4 = new Order(100, customer2);
-        Order order5 = new Order(200, customer2);
-        Order order6 = new Order(300, customer2);
+        Order order4 = new Order(100);
+        Order order5 = new Order(200);
+        Order order6 = new Order(300);
         orders2.add(order4);
         orders2.add(order5);
         orders2.add(order6);
         customer2.setOrders(orders2);
 
         List<Order> orders3 = new ArrayList<>();
-        Order order7 = new Order(1000, customer3);
-        Order order8 = new Order(2000, customer3);
-        Order order9 = new Order(3000, customer3);
+        Order order7 = new Order(1000);
+        Order order8 = new Order(2000);
+        Order order9 = new Order(3000);
         orders3.add(order7);
         orders3.add(order8);
         orders3.add(order9);
