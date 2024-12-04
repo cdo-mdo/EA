@@ -2,10 +2,10 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
-             version="3.2">
-    <persistence-unit name="exercise_4">
-        <class>org.edu.miu.cs544.labw1d1.exercise_4.Employee</class>
-        <class>org.edu.miu.cs544.labw1d1.exercise_4.Cubicle</class>
+             version="3.0">
+    <persistence-unit name="exercise_5">
+        <class>org.edu.miu.cs544.exercise_5.Employee</class>
+        <class>org.edu.miu.cs544.exercise_5.Department</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/cs544db"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -14,4 +14,5 @@
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
+
 </persistence>

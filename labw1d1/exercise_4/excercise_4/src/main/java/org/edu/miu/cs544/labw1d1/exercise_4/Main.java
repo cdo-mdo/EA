@@ -9,23 +9,32 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("exercise_4");
         EntityManager em = emf.createEntityManager();
 
-        Customer customer1 = new Customer("jack", "Iowa");
+        Employee emp1 = new Employee("Jack");
+        Employee emp2 = new Employee("John");
+        Employee emp3 = new Employee("Jane");
 
-        List<Order> orders1 = new ArrayList<Order>();
-        Order order1 = new Order(1, customer1);
-        Order order2 = new Order(2, customer1);
-        Order order3 = new Order(3, customer1);
-        orders1.add(order1);
-        orders1.add(order2);
-        orders1.add(order3);
-        customer1.setOrders(orders1);
+        Cubicle cubicle1 = new Cubicle("A1", emp1);
+        Cubicle cubicle2 = new Cubicle("A2", emp2);
+        Cubicle cubicle3 = new Cubicle("A3", emp3);
+
+        emp1.setAssignedCubicle(cubicle1);
+        emp2.setAssignedCubicle(cubicle2);
+        emp3.setAssignedCubicle(cubicle3);
 
         em.getTransaction().begin();
 
-        em.persist(customer1);
+        em.persist(cubicle1);
+        em.persist(cubicle2);
+        em.persist(cubicle3);
+
+        em.persist(emp1);
+        em.persist(emp2);
+        em.persist(emp3);
+
+
 
         em.getTransaction().commit();
 

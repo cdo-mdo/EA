@@ -12,43 +12,30 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
 
-        Customer customer1 = new Customer("jack", "Iowa");
-        Customer customer2 = new Customer("jane", "Minnesota");
-        Customer customer3 = new Customer("john", "Colorado");
+        Department department1 = new Department("Engineering");
+        Department department2 = new Department("Technology");
 
-        List<Order> orders1 = new ArrayList<>();
-        Order order1 = new Order(10);
-        Order order2 = new Order(20);
-        Order order3 = new Order(30);
-        orders1.add(order1);
-        orders1.add(order2);
-        orders1.add(order3);
-        customer1.setOrders(orders1);
+        Employee emp1 = new Employee(1, "Jack", department1);
+        Employee emp2 = new Employee(2, "Jill", department1);
+        Employee emp3 = new Employee(3, "Jim", department1);
+        department1.getEmployees().add(emp1);
+        department1.getEmployees().add(emp2);
+        department1.getEmployees().add(emp3);
 
-        List<Order> orders2 = new ArrayList<>();
-        Order order4 = new Order(100);
-        Order order5 = new Order(200);
-        Order order6 = new Order(300);
-        orders2.add(order4);
-        orders2.add(order5);
-        orders2.add(order6);
-        customer2.setOrders(orders2);
-
-        List<Order> orders3 = new ArrayList<>();
-        Order order7 = new Order(1000);
-        Order order8 = new Order(2000);
-        Order order9 = new Order(3000);
-        orders3.add(order7);
-        orders3.add(order8);
-        orders3.add(order9);
-        customer3.setOrders(orders3);
+        Employee emp4 = new Employee(4, "Bob", department2);
+        Employee emp5 = new Employee(5, "Bill", department2);
+        Employee emp6 = new Employee(6, "Bin", department2);
+        department2.getEmployees().add(emp4);
+        department2.getEmployees().add(emp5);
+        department2.getEmployees().add(emp6);
 
         em.getTransaction().begin();
+
+        em.persist(department1);
+        em.persist(department2);
+
         em.getTransaction().commit();
 
-        em.persist(customer1);
-        em.persist(customer2);
-        em.persist(customer3);
 
         em.close();
         emf.close();
