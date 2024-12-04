@@ -65,7 +65,7 @@ public class MainApplication {
         courseAttended.add(em.find(Course.class, courseOC8.getId()));
         courseAttended.add(em.find(Course.class, courseOC9.getId()));
         courseAttended.add(em.find(Course.class, courseOC10.getId()));
-//        student1.setCourseAttended(courseAttended);
+        student1.setCoursesAttended(courseAttended);
 
         student1.setCourseAttending(em.find(Course.class, courseOC4.getId()));
 
@@ -82,12 +82,13 @@ public class MainApplication {
         courseAttended2.add(em.find(Course.class, courseOC9.getId()));
         courseAttended2.add(em.find(Course.class, courseOC10.getId()));
 
-        student2.setCourseAttended(courseAttended2);
+        student2.setCoursesAttended(courseAttended2);
 
 //        student2.setCourseAttending(em.find(Course.class, courseDE2.getId()));
 
         Student student3 = new Student("Joe", 2.95F);
 
+        student3.setCoursesAttended(courseAttended2);
         student3.setCourseAttending(courseOC5);
 
 

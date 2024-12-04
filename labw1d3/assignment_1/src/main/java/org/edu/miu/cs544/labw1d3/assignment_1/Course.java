@@ -3,6 +3,7 @@ package org.edu.miu.cs544.labw1d3.assignment_1;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)
@@ -13,6 +14,12 @@ public class Course {
     private String name;
     private Date startDate;
     private String professor;
+
+    @OneToMany (mappedBy = "courseAttending")
+    private List<Student> attendingStudents;
+
+    @ManyToMany (mappedBy = "coursesAttended")
+    private List<Student> attendedStudents;
 
     public Course() {
     }
@@ -53,4 +60,16 @@ public class Course {
         this.name = name;
     }
 
+    public List<Student> getAttendingStudents() {
+        return attendingStudents;
+    }
+    public void setAttendingStudents(List<Student> attendingStudents) {
+        this.attendingStudents = attendingStudents;
+    }
+    public List<Student> getAttendedStudents() {
+        return attendedStudents;
+    }
+    public void setAttendedStudents(List<Student> attendedStudents) {
+        this.attendedStudents = attendedStudents;
+    }
 }

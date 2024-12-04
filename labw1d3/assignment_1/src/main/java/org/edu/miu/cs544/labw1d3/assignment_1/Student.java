@@ -1,24 +1,23 @@
 package org.edu.miu.cs544.labw1d3.assignment_1;
 
 import jakarta.persistence.*;
-import jdk.jfr.Name;
 
 import java.util.List;
 
 @Entity
 @NamedQueries({@NamedQuery(name = "Student.canGraduate", query =
-        "SELECT s FROM Student s WHERE s.gpa > :gpa AND SIZE(s.courseAttended) >= :numCourseAttended and s.courseAttending is null")})
+        "SELECT s FROM Student s WHERE s.gpa > :gpa AND SIZE(s.coursesAttended) >= :numCourseAttended and s.courseAttending is null")})
 public class Student {
     @Id@GeneratedValue
     private int id;
     private String name;
     private float gpa;
 
-    @OneToOne (cascade = CascadeType.MERGE)
+    @ManyToOne (cascade = CascadeType.PERSIST)
     private Course courseAttending;
 
-    @OneToMany (cascade = CascadeType.MERGE)
-    private List<Course> courseAttended;
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    private List<Course> coursesAttended;
 
     public Student() {
     }
@@ -53,11 +52,12 @@ public class Student {
         this.courseAttending = courseAttending;
     }
 
-    public List<Course> getCourseAttended() {
-        return courseAttended;
+    public List<Course> getCoursesAttended() {
+        return coursesAttended;
     }
 
-    public void setCourseAttended(List<Course> courseAttended) {
-        this.courseAttended = courseAttended;
+    public void setCoursesAttended(List<Course> courseAttended) {
+        this.coursesAttended = courseAttended;
     }
+
 }
