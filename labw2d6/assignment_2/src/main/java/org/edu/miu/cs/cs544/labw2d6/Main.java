@@ -1,5 +1,6 @@
-package org.edu.miu.cs.cs544.labw2d5;
+package org.edu.miu.cs.cs544.labw2d6;
 
+import org.edu.miu.cs.cs544.labw2d6.assignment_2.Game;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,10 +10,10 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Application use autowire by XML configuration");
+        System.out.println("Application start");
 
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        Game game = (Game) context.getBean("game");
+        Game game = context.getBean("game", Game.class);
         game.play();
 
     }
