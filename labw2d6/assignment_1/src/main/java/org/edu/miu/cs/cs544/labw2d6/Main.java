@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Start Application");
+        System.out.println("Application use AOP checking type Car");
 
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         Game game = context.getBean("game", Game.class);
