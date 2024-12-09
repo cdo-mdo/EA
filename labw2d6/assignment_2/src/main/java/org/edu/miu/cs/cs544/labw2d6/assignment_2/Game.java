@@ -4,10 +4,10 @@ public class Game {
     private Vehicle car;
     private Vehicle bike;
 
-    public void setBike(Bike bike) {
+    public void setBike(Vehicle bike) {
         this.bike = bike;
     }
-    public void setCar(Car car) {
+    public void setCar(Vehicle car) {
         this.car = car;
     }
 
@@ -20,5 +20,6 @@ public class Game {
         car.move();
         bike.move();
         System.out.println("Game end");
+
     }
 }
