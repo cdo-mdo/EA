@@ -6,7 +6,7 @@ import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "course")
+@Table (name = "course1")
 @SecondaryTable(name = "campus_room", pkJoinColumns = @PrimaryKeyJoinColumn(name = "course_id"))
 public class Course {
     @Id@GeneratedValue

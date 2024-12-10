@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03c1c81e-c33d-49a9-85cb-0882ca3f6e95" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/aspects/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/aspects/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/assignment_2/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/assignment_2/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/assignment_2/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/edu/miu/cs/cs544/labw2d6/assignment_2/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
-    </list>
+    <list default="true" id="03c1c81e-c33d-49a9-85cb-0882ca3f6e95" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733709805964</updated>
-      <workItem from="1733709806838" duration="1547000" />
+      <workItem from="1733709806838" duration="2869000" />
     </task>
     <servers />
   </component>
