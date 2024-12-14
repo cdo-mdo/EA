@@ -1,10 +1,12 @@
 package org.edu.miu.cs.cs544.labw3d3.exercise_1.entity;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
+@JacksonXmlRootElement
 public class Student {
     @Id
     @GeneratedValue
