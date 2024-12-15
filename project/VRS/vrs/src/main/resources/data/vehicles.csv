@@ -1,0 +1,31 @@
+licensePlate,make,model,color,year,status
+XYZ715,Nissan,Civic,Brown,2010,OUT_OF_SERVICE
+XYZ488,Ford,Malibu,Gray,2015,OUT_OF_SERVICE
+XYZ151,Kia,Corolla,Blue,2010,IN_USE
+XYZ835,Kia,Focus,Red,2018,IN_USE
+XYZ102,Mazda,CX-5,Silver,2014,AVAILABLE
+XYZ239,Toyota,3 Series,Silver,2022,AVAILABLE
+XYZ184,BMW,Altima,Blue,2019,OUT_OF_SERVICE
+XYZ413,Volkswagen,Altima,Brown,2014,AVAILABLE
+XYZ415,Nissan,Malibu,Green,2012,OUT_OF_SERVICE
+XYZ611,Toyota,Elantra,Black,2022,OUT_OF_SERVICE
+XYZ863,Chevrolet,Focus,White,2019,AVAILABLE
+XYZ723,Nissan,Malibu,Brown,2012,OUT_OF_SERVICE
+XYZ776,Mazda,Malibu,Red,2006,AVAILABLE
+XYZ411,Toyota,Golf,White,2010,OUT_OF_SERVICE
+XYZ985,BMW,Malibu,Red,2011,IN_USE
+XYZ362,Nissan,Corolla,Yellow,2004,IN_USE
+XYZ487,Honda,Corolla,Silver,2020,AVAILABLE
+XYZ439,Toyota,Soul,Green,2001,IN_USE
+XYZ902,Ford,Altima,Red,2008,AVAILABLE
+XYZ366,Volkswagen,Civic,Brown,2019,OUT_OF_SERVICE
+XYZ825,Kia,Focus,Yellow,2019,IN_USE
+XYZ936,Volkswagen,Focus,White,2005,AVAILABLE
+XYZ962,BMW,3 Series,Brown,2015,IN_USE
+XYZ517,Toyota,Civic,Green,2005,IN_USE
+XYZ285,Volkswagen,Corolla,Green,2009,IN_USE
+XYZ185,Ford,Elantra,Green,2000,OUT_OF_SERVICE
+XYZ180,Nissan,Altima,Blue,2009,IN_USE
+XYZ254,Nissan,Civic,Yellow,2020,OUT_OF_SERVICE
+XYZ133,Toyota,CX-5,Yellow,2017,IN_USE
+XYZ505,Kia,Malibu,Green,2009,AVAILABLE
