@@ -1,5 +1,7 @@
 package org.edu.miu.cs.cs544.vrs.dto;
 
+import org.edu.miu.cs.cs544.vrs.Entity.PaymentType;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 

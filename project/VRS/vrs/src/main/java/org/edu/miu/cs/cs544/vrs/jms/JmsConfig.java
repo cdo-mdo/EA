@@ -1,6 +1,6 @@
-package org.edu.miu.cs.cs544.vrs.pns.jms;
+package org.edu.miu.cs.cs544.vrs.jms;
 
-import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.activemq.artemis.jms.client.ActiveMQJMSConnectionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +11,7 @@ public class JmsConfig {
     private String BROKER_URL;
 
     @Bean
-    public ActiveMQConnectionFactory connectionFactory() {
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
-        return connectionFactory;
+    public ActiveMQJMSConnectionFactory getConnectionFactory() {
+        return new ActiveMQJMSConnectionFactory(BROKER_URL);
     }
 }
