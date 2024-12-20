@@ -16,6 +16,9 @@ public class Vehicle {
     private String model;
     private String color;
     private int year;
+    private int seatCapacity;
+    private int payloadCapacity;
+    private FuelType fuelType;
     private VehicleStatus status;
 
     @ManyToOne
