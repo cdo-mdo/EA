@@ -3,13 +3,13 @@ package org.edu.miu.cs.cs544.vrs.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "person_type")
 @NamedQuery(name = "person.findByName1", query = "SELECT p from Person p WHERE p.name = ?1")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
     private String mobileNumber;

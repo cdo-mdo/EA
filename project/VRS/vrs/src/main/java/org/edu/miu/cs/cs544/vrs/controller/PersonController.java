@@ -13,6 +13,11 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
     @GetMapping("/persons")
     public List<Person> getPersons() {
         return personService.getPersons();

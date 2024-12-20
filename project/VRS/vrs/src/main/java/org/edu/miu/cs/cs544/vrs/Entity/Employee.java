@@ -1,18 +1,22 @@
 package org.edu.miu.cs.cs544.vrs.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee extends Person {
     private String employeeId;
-    private Role role;
     private ShiftSchedule shiftSchedule;
 
     @ManyToOne
-    @JoinColumn(name = "branch_id")
+    @JoinColumn(name = "branch_id", nullable = true)
     private Branch branch;
+
+    @OneToOne
+    @JoinColumn(name="role_id", nullable = false)
+    private Role role;
+
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    private User user;
 
     public Employee() {
         super();

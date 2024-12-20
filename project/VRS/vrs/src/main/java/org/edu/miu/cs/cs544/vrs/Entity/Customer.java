@@ -1,11 +1,21 @@
 package org.edu.miu.cs.cs544.vrs.Entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Customer extends Person {
     private String driverLicenseNumber;
     private MembershipLevel membershipLevel;
+
+    @OneToMany (mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations;
+
+    @OneToMany (mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rental> rentals;
 
     public Customer() {
         super();

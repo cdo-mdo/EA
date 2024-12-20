@@ -1,15 +1,15 @@
 package org.edu.miu.cs.cs544.vrs.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Collection;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long vehicleId;
+    private Long vehicleId;
 
     private String licensePlate;
     private String make;
@@ -17,6 +17,19 @@ public class Vehicle {
     private String color;
     private int year;
     private VehicleStatus status;
+
+    @ManyToOne
+    @JoinColumn(name = "branch_id", nullable = false)
+    private Branch branch;
+
+    @OneToOne (mappedBy = "vehicle", cascade = CascadeType.ALL, optional = true)
+    private Reservation currentReservation;
+
+    @OneToOne (mappedBy = "vehicle", cascade = CascadeType.ALL, optional = true)
+    private Rental currentRental;
+
+    @OneToMany (mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    Collection<MaintenanceRecord> maintenanceRecords;
 
     public Vehicle() {
     }
@@ -69,6 +82,12 @@ public class Vehicle {
     }
     public VehicleStatus getStatus() {
         return status;
+    }
+    public Branch getBranch() {
+        return branch;
+    }
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
     @Override
     public String toString() {

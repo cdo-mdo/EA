@@ -2,20 +2,30 @@ package org.edu.miu.cs.cs544.vrs.Entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
     private String address;
     private String phone;
+    private LocalDateTime createdDate;
+
+    @OneToOne
+    @JoinColumn(name = "manager_id", referencedColumnName = "id", nullable = true)
+    private Employee managedBy;
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Employee> employees;
+
+    @OneToMany (mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vehicle> vehicles;
 
     public Branch() {
     }
@@ -24,6 +34,7 @@ public class Branch {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.createdDate = LocalDateTime.now();
     }
     public long getId() {
         return id;
@@ -59,7 +70,16 @@ public class Branch {
     public void setEmployees(Collection<Employee> employees) {
         this.employees = employees;
     }
-
-
-
+    public Employee getManagedBy() {
+        return managedBy;
+    }
+    public void setManagedBy(Employee managedBy) {
+        this.managedBy = managedBy;
+    }
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
 }

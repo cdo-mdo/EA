@@ -2,10 +2,12 @@ package org.edu.miu.cs.cs544.vrs;
 
 import org.edu.miu.cs.cs544.vrs.Entity.*;
 import org.edu.miu.cs.cs544.vrs.config.VehicleConfig;
+import org.edu.miu.cs.cs544.vrs.init.InitBranch;
+import org.edu.miu.cs.cs544.vrs.init.InitRole;
+import org.edu.miu.cs.cs544.vrs.init.InitUser;
 import org.edu.miu.cs.cs544.vrs.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,20 +19,10 @@ public class DatabaseInitializer implements CommandLineRunner {
     private PersonRepository personRepository;
 
     @Autowired
-    private BranchRepository branchRepository;
-
-    @Autowired
     private CustomerRepository customerRepository;
 
     @Autowired
     private EmployeeRepository employeeRepository;
-
-    Branch branch1 = new Branch("Downtown Rent-A-Car",
-            "123 Main Street Los Angeles, CA 90012", "213-555-1234");
-    Branch branch2 = new Branch("Lone Star Rentals",
-            "456 Oak Avenue Austin, TX 78704", "512-555-4567");
-    Branch branch3 = new Branch("Empire Car Rentals",
-            "789 Broadway New York, NY 10010", "212-555-7890");
 
     private void createPerson() {
         personRepository.save(new Person("Jack", "555-123-4561", "jack@example.com"));
@@ -43,11 +35,6 @@ public class DatabaseInitializer implements CommandLineRunner {
         personRepository.save(new Person("Jason", "555-123-4568", "jason@example.com"));
         personRepository.save(new Person("Jacob", "555-123-4569", "jacob@example.com"));
         personRepository.save(new Person("James", "555-123-4570", "james@example.com"));
-    }
-    private void createBranch() {
-        branchRepository.save(branch1);
-        branchRepository.save(branch2);
-        branchRepository.save(branch3);
     }
 
     private void createCustomer() {
@@ -73,28 +60,35 @@ public class DatabaseInitializer implements CommandLineRunner {
                 "B012345678", MembershipLevel.VIP));
     }
 
-    private void createEmployee() {
-        employeeRepository.save(new Employee("Max", "555-121-2121", "max@example.com",
-                "EMP02567", Role.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch1));
-        employeeRepository.save(new Employee("Matt", "555-232-3232", "matt@example.com",
-                "EMP02890", Role.CUSTOMER_SERVICE_AGENT, ShiftSchedule.MORNING_8_TO_4, branch1));
-        employeeRepository.save(new Employee("Mae", "555-343-4343", "mae@example.com",
-                "EMP00123", Role.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch1));
-        employeeRepository.save(new Employee("Mel", "555-454-5454", "mel@example.com",
-                "EMP00456", Role.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch2));
-        employeeRepository.save(new Employee("Mark", "555-565-6565", "mark@example.com",
-                "EMP00789", Role.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch2));
-        employeeRepository.save(new Employee("Mo", "555-676-7676", "mo@example.com",
-                "EMP01012", Role.CUSTOMER_SERVICE_AGENT, ShiftSchedule.AFTERNOON_4_TO_12, branch2));
-        employeeRepository.save(new Employee("Meg", "555-787-8787", "meg@example.com",
-                "EMP01345", Role.ON_CALL_DRIVER, ShiftSchedule.MORNING_8_TO_4, branch2));
-        employeeRepository.save(new Employee("Mitch", "555-898-9898", "mitch@example.com",
-                "EMP01678", Role.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch3));
-        employeeRepository.save(new Employee("Mick", "555-909-0909", "mick@example.com",
-                "EMP01901", Role.CUSTOMER_SERVICE_AGENT, ShiftSchedule.EVENING_12_TO_8, branch3));
-        employeeRepository.save(new Employee("Miles", "555-101-0101", "miles@example.com",
-                "EMP02234", Role.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch3));
-    }
+    Branch branch1 = new Branch("Downtown Rent-A-Car",
+            "123 Main Street Los Angeles, CA 90012", "213-555-1234");
+    Branch branch2 = new Branch("Lone Star Rentals",
+            "456 Oak Avenue Austin, TX 78704", "512-555-4567");
+    Branch branch3 = new Branch("Empire Car Rentals",
+            "789 Broadway New York, NY 10010", "212-555-7890");
+
+//    private void createEmployee() {
+//        employeeRepository.save(new Employee("Max", "555-121-2121", "max@example.com",
+//                "EMP02567", RoleName.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch1));
+//        employeeRepository.save(new Employee("Matt", "555-232-3232", "matt@example.com",
+//                "EMP02890", RoleName.CUSTOMER_SERVICE_AGENT, ShiftSchedule.MORNING_8_TO_4, branch1));
+//        employeeRepository.save(new Employee("Mae", "555-343-4343", "mae@example.com",
+//                "EMP00123", RoleName.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch1));
+//        employeeRepository.save(new Employee("Mel", "555-454-5454", "mel@example.com",
+//                "EMP00456", RoleName.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch2));
+//        employeeRepository.save(new Employee("Mark", "555-565-6565", "mark@example.com",
+//                "EMP00789", RoleName.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch2));
+//        employeeRepository.save(new Employee("Mo", "555-676-7676", "mo@example.com",
+//                "EMP01012", RoleName.CUSTOMER_SERVICE_AGENT, ShiftSchedule.AFTERNOON_4_TO_12, branch2));
+//        employeeRepository.save(new Employee("Meg", "555-787-8787", "meg@example.com",
+//                "EMP01345", RoleName.ON_CALL_DRIVER, ShiftSchedule.MORNING_8_TO_4, branch2));
+//        employeeRepository.save(new Employee("Mitch", "555-898-9898", "mitch@example.com",
+//                "EMP01678", RoleName.MANAGER, ShiftSchedule.MORNING_8_TO_4, branch3));
+//        employeeRepository.save(new Employee("Mick", "555-909-0909", "mick@example.com",
+//                "EMP01901", RoleName.CUSTOMER_SERVICE_AGENT, ShiftSchedule.EVENING_12_TO_8, branch3));
+//        employeeRepository.save(new Employee("Miles", "555-101-0101", "miles@example.com",
+//                "EMP02234", RoleName.VEHICLE_PREP_AGENT, ShiftSchedule.MORNING_8_TO_4, branch3));
+//    }
 
     @Autowired
     VehicleConfig vehicleConfig;
@@ -107,13 +101,27 @@ public class DatabaseInitializer implements CommandLineRunner {
         vehicles.forEach(v -> vehicleRepository.save(v));
     }
 
+    @Autowired
+    private InitRole initRole;
+
+    @Autowired
+    private InitUser initUser;
+
+    @Autowired
+    private InitBranch initBranch;
+
     @Override
     public void run(String... args) throws Exception {
-        createPerson();
-        createBranch();
-        createCustomer();
-        createEmployee();
+        initRole.initData();
+        initUser.initData();
+        initBranch.initData();
 
-        createVehicle();
+
+        createPerson();
+//        createBranch();
+//        createCustomer();
+//        createEmployee();
+
+//        createVehicle();
     }
 }
