@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/vehicles")
 public class VehicleController {
@@ -21,5 +24,11 @@ public class VehicleController {
         System.out.println("regster vehicle: ");
         vehicleService.registerVehicle(vehicleDTO);
         return ResponseEntity.ok("Vehicle registered successfully");
+    }
+
+    @GetMapping("/available")
+    public List<Vehicle> getAvailableVehicles(@RequestParam String targetTime) {
+        LocalDateTime time = LocalDateTime.parse(targetTime); // Parse time from request
+        return vehicleService.getAvailableVehicles(time);
     }
 }

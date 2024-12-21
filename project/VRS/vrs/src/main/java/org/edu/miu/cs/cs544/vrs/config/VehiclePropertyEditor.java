@@ -1,5 +1,6 @@
 package org.edu.miu.cs.cs544.vrs.config;
 
+import org.edu.miu.cs.cs544.vrs.Entity.FuelType;
 import org.edu.miu.cs.cs544.vrs.Entity.Vehicle;
 import org.edu.miu.cs.cs544.vrs.Entity.VehicleStatus;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class VehiclePropertyEditor extends PropertyEditorSupport {
                     continue;
                 }
                 String[] fields = line.split(",");
-                if (fields.length != 6) {
+                if (fields.length != 9) {
                     throw new IllegalArgumentException("Invalid number of fields in line " + line);
                 }
                 Vehicle vehicle = new Vehicle();
@@ -34,7 +35,10 @@ public class VehiclePropertyEditor extends PropertyEditorSupport {
                 vehicle.setModel(fields[2]);
                 vehicle.setColor(fields[3]);
                 vehicle.setYear(Integer.parseInt(fields[4]));
-                vehicle.setStatus(VehicleStatus.valueOf(fields[5]));
+                vehicle.setSeatCapacity(Integer.parseInt(fields[5]));
+                vehicle.setPayloadCapacity(Integer.parseInt(fields[6]));
+                vehicle.setFuelType(FuelType.valueOf(fields[7]));
+                vehicle.setStatus(VehicleStatus.valueOf(fields[8]));
                 vehicles.add(vehicle);
             }
         }

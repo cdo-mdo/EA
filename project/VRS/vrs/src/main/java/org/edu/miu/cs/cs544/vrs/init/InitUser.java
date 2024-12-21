@@ -3,6 +3,7 @@ package org.edu.miu.cs.cs544.vrs.init;
 import org.edu.miu.cs.cs544.vrs.Entity.Role;
 import org.edu.miu.cs.cs544.vrs.Entity.RoleName;
 import org.edu.miu.cs.cs544.vrs.Entity.User;
+import org.edu.miu.cs.cs544.vrs.repository.BranchRepository;
 import org.edu.miu.cs.cs544.vrs.repository.RoleRepository;
 import org.edu.miu.cs.cs544.vrs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,7 @@ public class InitUser {
                     passwordEncoder.encode("admin"), adminRole);
             userRepository.save(adminUser);
         }
+
+
     }
 }

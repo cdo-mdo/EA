@@ -1,12 +1,14 @@
 package org.edu.miu.cs.cs544.vrs.Entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Customer.findByMembershipLevel", query = "SELECT c FROM Customer c WHERE c.membershipLevel = :membershipLevel"),
+        @NamedQuery(name = "Customer.findByDriverLicenseNumber", query = "SELECT c FROM Customer c WHERE c.driverLicenseNumber = :driverLicenseNumber")
+})
 public class Customer extends Person {
     private String driverLicenseNumber;
     private MembershipLevel membershipLevel;

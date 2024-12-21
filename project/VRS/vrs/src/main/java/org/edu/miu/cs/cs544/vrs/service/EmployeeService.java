@@ -2,14 +2,13 @@ package org.edu.miu.cs.cs544.vrs.service;
 
 import org.edu.miu.cs.cs544.vrs.Entity.*;
 import org.edu.miu.cs.cs544.vrs.dto.EmployeeDTO;
-import org.edu.miu.cs.cs544.vrs.repository.BranchRepository;
-import org.edu.miu.cs.cs544.vrs.repository.EmployeeRepository;
-import org.edu.miu.cs.cs544.vrs.repository.RoleRepository;
-import org.edu.miu.cs.cs544.vrs.repository.UserRepository;
+import org.edu.miu.cs.cs544.vrs.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -27,6 +26,9 @@ public class EmployeeService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EmployeeRepositoryCustom employeeRepositoryCustom;
 
     public void registerEmployee(EmployeeDTO employeeDTO) {
         // Get the currently authenticated user (Manager)
@@ -74,6 +76,9 @@ public class EmployeeService {
             user.setEmployee(employee);
             userRepository.save(user);
         }
+    }
 
+    public List<Employee> searchEmployees(String name, String role, Long branchId, String userName) {
+        return employeeRepositoryCustom.findEmployees(name, role, branchId, userName);
     }
 }

@@ -1,8 +1,9 @@
 package org.edu.miu.cs.cs544.vrs.service;
 
-import org.edu.miu.cs.cs544.vrs.Entity.Person;
+import org.edu.miu.cs.cs544.vrs.Entity.*;
 import org.edu.miu.cs.cs544.vrs.exception.ObjectNotFoundException;
 import org.edu.miu.cs.cs544.vrs.repository.PersonRepository;
+import org.edu.miu.cs.cs544.vrs.repository.PersonRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ import java.util.Optional;
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private PersonRepositoryCustom personRepositoryCustom;
 
     public List<Person> getPersons() {
         return personRepository.findAll();
@@ -66,5 +70,21 @@ public class PersonService {
 
     public Person addPerson(Person person) {
         return personRepository.save(person);
+    }
+
+    public List<Employee> getEmployeesByRole(Role role) {
+        return personRepositoryCustom.findEmployeesByRole(role);
+    }
+
+    public List<Employee> getEmployeesByShiftSchedule(ShiftSchedule shiftSchedule) {
+        return personRepositoryCustom.findEmployeesByShiftSchedule(shiftSchedule);
+    }
+
+    public List<Customer> getCustomersByMembershipLevel(MembershipLevel membershipLevel) {
+        return personRepositoryCustom.findCustomersByMembershipLevel(membershipLevel);
+    }
+
+    public Customer getCustomerByDriverLicenseNumber(String driverLicenseNumber) {
+        return personRepositoryCustom.findCustomerByDriverLicenseNumber(driverLicenseNumber);
     }
 }

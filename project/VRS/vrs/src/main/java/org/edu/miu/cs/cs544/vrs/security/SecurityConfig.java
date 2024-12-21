@@ -32,12 +32,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/branches/**").hasRole("ADMIN")
+                        .requestMatchers("/api/person/**").hasRole("MANAGER")
                         .requestMatchers("/api/employees/**").hasRole("MANAGER")
                         .requestMatchers("/api/vehicles/**").hasRole("MANAGER")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/manager/**").hasRole("MANAGER")
                         .requestMatchers("/api/rentals/**").hasRole("CUSTOMER_SERVICE_AGENT")
-                        .requestMatchers("/vehicle-prep/**").hasRole("VEHICLE_PREP_AGENT")
                         .requestMatchers("/login", "/api/reservations/**").permitAll()
                         .anyRequest().authenticated()
                 )

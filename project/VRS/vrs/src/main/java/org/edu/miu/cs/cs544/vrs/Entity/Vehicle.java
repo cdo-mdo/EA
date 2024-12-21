@@ -37,12 +37,17 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(String licensePlate, String make, String model, String color, int year) {
+    public Vehicle(String licensePlate, String make, String model, String color, int year,
+                   int seatCapacity, int payloadCapacity, FuelType fuelType, VehicleStatus status) {
         this.licensePlate = licensePlate;
         this.make = make;
         this.model = model;
         this.color = color;
         this.year = year;
+        this.seatCapacity = seatCapacity;
+        this.payloadCapacity = payloadCapacity;
+        this.fuelType = fuelType;
+        this.status = status;
     }
     public long getVehicleId() {
         return vehicleId;
@@ -94,7 +99,33 @@ public class Vehicle {
     }
     @Override
     public String toString() {
-        return "Vehicle [vehicleId=" + vehicleId + ", licensePlate=" + licensePlate + ", make=" + make + ", model="
-                + model + ", color=" + color + ", year=" + year + "]";
+        return "Vehicle [vehicleId=" + vehicleId + ", licensePlate=" + licensePlate
+                + ", make=" + make + ", model=" + model + ", color=" + color + ", year=" + year
+                + ", seatCapacity=" + seatCapacity + ", payloadCapacity=" + payloadCapacity
+                + ", fuelType=" + fuelType + ", status=" + status + "]";
+    }
+    public int getSeatCapacity() {
+        return seatCapacity;
+    }
+    public void setSeatCapacity(int seatCapacity) {
+        this.seatCapacity = seatCapacity;
+    }
+    public int getPayloadCapacity() {
+        return payloadCapacity;
+    }
+    public void setPayloadCapacity(int payloadCapacity) {
+        this.payloadCapacity = payloadCapacity;
+    }
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+    public Reservation getCurrentReservation() {
+        return currentReservation;
+    }
+    public void setCurrentReservation(Reservation currentReservation) {
+        this.currentReservation = currentReservation;
     }
 }

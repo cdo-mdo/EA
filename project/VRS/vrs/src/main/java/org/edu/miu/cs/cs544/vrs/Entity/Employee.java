@@ -3,6 +3,10 @@ package org.edu.miu.cs.cs544.vrs.Entity;
 import jakarta.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Employee.findByRole", query = "SELECT e FROM Employee e WHERE e.role = :role"),
+        @NamedQuery(name = "Employee.findByShiftSchedule", query = "SELECT e FROM Employee e WHERE e.shiftSchedule = :shiftSchedule")
+})
 public class Employee extends Person {
     private String employeeId;
     private ShiftSchedule shiftSchedule;
@@ -11,11 +15,11 @@ public class Employee extends Person {
     @JoinColumn(name = "branch_id", nullable = true)
     private Branch branch;
 
-    @OneToOne
-    @JoinColumn(name="role_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "employee")
     private User user;
 
     public Employee() {
@@ -54,5 +58,11 @@ public class Employee extends Person {
     }
     public void setBranch(Branch branch) {
         this.branch = branch;
+    }
+    public User getUser() {
+        return this.user;
+    }
+    public void setUser(User user) {
+
     }
 }
